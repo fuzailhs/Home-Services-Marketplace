@@ -134,7 +134,7 @@ export default function HomePage() {
               Local home services · one trusted team
             </p>
 
-            <h1 className="mt-5 text-[2.65rem] leading-[1.02] sm:text-[3.6rem]">
+            <h1 className="mt-5 text-balance text-[2.35rem] leading-[1.04] sm:text-[3.2rem] lg:text-[3.4rem]">
               Home repairs,
               <br />
               <span className="italic text-brand">without the phone tag.</span>
@@ -181,7 +181,7 @@ export default function HomePage() {
         <div className="container-page py-16 sm:py-20">
           <div className="max-w-2xl">
             <p className="eyebrow">How it works</p>
-            <h2 className="mt-3 text-3xl sm:text-[2.4rem]">
+            <h2 className="mt-3 text-balance text-3xl sm:text-[2.4rem]">
               Four steps from request to finished job.
             </h2>
             <p className="mt-3 text-[0.98rem] leading-relaxed text-ink-soft">

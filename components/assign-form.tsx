@@ -16,6 +16,7 @@ export function AssignForm({
   reference,
   status,
   providers,
+  category,
   currentProviderId,
   currentScheduledDate,
   minDate,
@@ -23,12 +24,16 @@ export function AssignForm({
   reference: string;
   status: Status;
   providers: ProviderOption[];
+  category?: string;
   currentProviderId: string | null;
   currentScheduledDate: string | null;
   minDate: string;
 }) {
   const router = useRouter();
-  const [providerId, setProviderId] = useState(currentProviderId ?? providers[0]?.id ?? "");
+  const matchingProvider = providers.find((provider) => provider.category === category);
+  const [providerId, setProviderId] = useState(
+    currentProviderId ?? matchingProvider?.id ?? providers[0]?.id ?? "",
+  );
   const [scheduledDate, setScheduledDate] = useState(
     currentScheduledDate ?? minDate,
   );

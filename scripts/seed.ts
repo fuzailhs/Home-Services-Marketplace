@@ -256,6 +256,13 @@ export async function seedDatabase(): Promise<void> {
     "admin@homeservices.local": adminId,
   };
 
+  const providerNameByEmail: Record<string, string> = {
+    "maria@homeservices.local": "Maria Santos",
+    "daniel@homeservices.local": "Daniel Boateng",
+    "priya@homeservices.local": "Priya Raman",
+    "admin@homeservices.local": "Amina Okafor",
+  };
+
   for (const seed of SEED_REQUESTS) {
     const id = randomUUID();
     const providerId = seed.providerEmail ? providerIdByEmail[seed.providerEmail] : null;
@@ -322,13 +329,12 @@ export async function seedDatabase(): Promise<void> {
     });
 
     if (seed.providerEmail) {
-      const firstName = seed.providerEmail.split("@")[0];
       await db.insert(auditEvents).values({
         id: randomUUID(),
         requestId: id,
         action: AUDIT_ACTIONS.PROVIDER_ASSIGNED,
         actorId: adminId,
-        detail: `${firstName} assigned for ${seed.scheduledDate}`,
+        detail: `${providerNameByEmail[seed.providerEmail]} assigned for ${seed.scheduledDate}`,
         createdAt: ago(26),
       });
     }

@@ -214,6 +214,7 @@ export default async function AdminRequestPage({
               <AssignForm
                 reference={detail.reference}
                 status={detail.status}
+                category={detail.category}
                 providers={providers.map((provider) => ({
                   id: provider.id,
                   fullName: provider.fullName,
